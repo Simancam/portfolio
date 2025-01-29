@@ -1,16 +1,25 @@
 "use client";
 
 import Image from "next/image";
-import { animate, motion } from "framer-motion";
+import { animate, AnimationSequence } from "framer-motion";
 import React, { useEffect, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { FaReact, FaPython } from "react-icons/fa";
 import { SiTailwindcss, SiAstro, SiNextdotjs } from "react-icons/si";
+import { IconType } from "react-icons";
+
+// Define proper types for the technology object
+interface Technology {
+  icon: IconType;
+  color: string;
+  name: string;
+  textColor: string;
+}
 
 export default function About() {
   const description = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam iusto quisquam, voluptas quas perspiciatis ullam facere velit quidem! Cumque ducimus consequatur distinctio, atque possimus facere exercitationem reiciendis quidem maxime. Maxime!`;
 
-  const technologies = [
+  const technologies: Technology[] = [
     { icon: FaReact, color: "#4A90E2", name: "React", textColor: "white" },
     { icon: SiAstro, color: "#F77F00", name: "Astro", textColor: "white" },
     {
@@ -106,7 +115,7 @@ export default function About() {
   );
 }
 
-const TechStack = ({ technologies }: { technologies: any[] }) => {
+const TechStack = ({ technologies }: { technologies: Technology[] }) => {
   const sequence = useMemo(
     () =>
       technologies.map((_, index) => [
@@ -121,21 +130,20 @@ const TechStack = ({ technologies }: { technologies: any[] }) => {
   );
 
   useEffect(() => {
-    animate(sequence, {
-      // @ts-ignore
-      repeat: Infinity,
+    const animationSequence = sequence as AnimationSequence;
+    animate(animationSequence, {
+      repeat: Number.POSITIVE_INFINITY,
       repeatDelay: 1,
     });
-  }, []);
+  }, [sequence]);
 
   return (
     <div className="p-8 overflow-hidden h-full relative flex items-center justify-center">
       <div className="flex flex-row flex-shrink-0 justify-center items-center gap-2">
         {technologies.map((tech, index) => {
-          // Calcular el tamaño basado en la posición central
-          const centerIndex = Math.floor(technologies.length / 2); // Índice central
-          const baseSize = 5; // Tamaño base en rem (más pequeño)
-          const sizeScale = baseSize + Math.abs(centerIndex - index) * -1; // Escala más sutil
+          const centerIndex = Math.floor(technologies.length / 2);
+          const baseSize = 5;
+          const sizeScale = baseSize + Math.abs(centerIndex - index) * -1;
 
           return (
             <Container

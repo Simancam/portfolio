@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -92,9 +92,7 @@ export const Card = React.memo(
 
 Card.displayName = "Card";
 
-interface CardData extends CardProps {}
-
-export function FocusCards({ cards }: { cards: CardData[] }) {
+export function FocusCards({ cards }: { cards: CardProps[] }) {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
