@@ -50,7 +50,7 @@ export const Card = React.memo(
         )}>
           {card.title}
         </h3>
-        <p className="text-sm text-gray-400 dark:text-gray-300 mb-4">
+        <p className="text-sm text-gray-400 dark:text-gray-300 mb-4 font-outfit">
           {card.description}
         </p>
         <div className="flex flex-wrap gap-2 mb-4">

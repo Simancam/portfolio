@@ -14,14 +14,14 @@ export default function SignupFormDemo() {
       <h2 className="font-bold text-xl text-neutral-200">
         Welcome to Aceternity
       </h2>
-      <p className="text-neutral-400 text-sm max-w-sm mt-2">
+      <p className="font-outfit text-neutral-400 text-sm max-w-sm mt-2">
         Fill out this form and discover how I can help you develop tailored
         software solutions that fit your needs.
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
-          <LabelInputContainer>
+          <LabelInputContainer className="font-outfit">
             <Label htmlFor="firstname" className="text-neutral-200">
               First name
             </Label>
@@ -32,7 +32,7 @@ export default function SignupFormDemo() {
               className="bg-zinc-800 border-zinc-700 text-neutral-200 placeholder:text-neutral-500 focus:border-[#FF3E3E] focus-visible:ring-1 focus-visible:ring-[#FF3E3E] hover:border-[#FF3E3E]"
             />
           </LabelInputContainer>
-          <LabelInputContainer>
+          <LabelInputContainer className="font-outfit">
             <Label htmlFor="lastname" className="text-neutral-200">
               Last name
             </Label>
@@ -44,7 +44,7 @@ export default function SignupFormDemo() {
             />
           </LabelInputContainer>
         </div>
-        <LabelInputContainer className="mb-4">
+        <LabelInputContainer className="mb-4 font-outfit">
           <Label htmlFor="email" className="text-neutral-200">
             Email Address
           </Label>
@@ -55,7 +55,7 @@ export default function SignupFormDemo() {
             className="bg-zinc-800 border-zinc-700 text-neutral-200 placeholder:text-neutral-500 focus:border-[#FF3E3E] focus-visible:ring-1 focus-visible:ring-[#FF3E3E] hover:border-[#FF3E3E]"
           />
         </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
+        <LabelInputContainer className="mb-4 font-outfit">
           <Label htmlFor="phone" className="text-neutral-200">
             Phone
           </Label>
@@ -74,7 +74,7 @@ export default function SignupFormDemo() {
             />
           </div>
         </LabelInputContainer>
-        <LabelInputContainer className="mb-8">
+        <LabelInputContainer className="mb-8 font-outfit">
           <Label htmlFor="twitterpassword" className="text-neutral-200">
             Project Type
           </Label>
@@ -86,7 +86,7 @@ export default function SignupFormDemo() {
           />
         </LabelInputContainer>
         <button
-          className="bg-gradient-to-br relative group/btn from-zinc-800 to-zinc-900 block w-full text-neutral-200 rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+          className="font-outfit bg-gradient-to-br relative group/btn from-zinc-800 to-zinc-900 block w-full text-neutral-200 rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit"
         >
           Send

@@ -59,7 +59,7 @@ export default function About() {
               <CardTitle className="text-[#FF3E3E] !text-4xl md:!text-5xl">
                 About Me
               </CardTitle>
-              <CardDescription className="!text-base leading-relaxed">
+              <CardDescription className="!text-base leading-relaxed font-outfit">
                 {description}
               </CardDescription>
             </div>
@@ -71,7 +71,7 @@ export default function About() {
             <CardTitle className="text-[#FF3E3E] text-2xl mb-8">
               Education
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="font-outfit">
               <ul className="space-y-6">
                 <li className="flex flex-col space-y-1">
                   <div className="font-bold text-white text-xl">
@@ -102,7 +102,7 @@ export default function About() {
             <CardTitle className="text-[#FF3E3E] mb-4">
               Technologies used
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="font-outfit">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
               molestias aut quos vero ipsum veniam officia quas ducimus! Cum
               adipisci iure veniam tempore temporibus sapiente vitae totam

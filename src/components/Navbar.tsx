@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <div className="w-full fixed top-0 left-0 right-0 z-50 px-4 py-4">
       <nav className="max-w-screen-xl mx-auto backdrop-blur-md bg-black/30 rounded-[20px] border border-white/10 shadow-lg">
-        <div className="flex flex-wrap items-center justify-between mx-auto px-6 py-3">
+        <div className="flex flex-wrap items-center justify-between mx-auto px-6 py-3 font-space-grotesk">
           <a
             href="#"
             className="flex items-center space-x-3 rtl:space-x-reverse"

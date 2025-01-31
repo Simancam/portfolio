@@ -26,9 +26,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'space-grotesk': ['var(--font-space-grotesk)'],
+        'outfit': ['var(--font-outfit)'],
+      },
       // Animaciones y keyframes
       animation: {
         aurora: "aurora 60s linear infinite",
+        shimmer: "shimmer 2s linear infinite",
       },
       keyframes: {
         aurora: {
@@ -39,6 +44,14 @@ const config: Config = {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        shimmer: {  // Nuevos keyframes
+          from: {
+            backgroundPosition: "0 0"
+          },
+          to: {
+            backgroundPosition: "-200% 0"
+          }
+        }
       },
       // Colores personalizados basados en variables CSS
       colors: {
