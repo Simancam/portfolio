@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import { FaReact, FaPython } from "react-icons/fa";
 import { SiTailwindcss, SiAstro, SiNextdotjs } from "react-icons/si";
 import { IconType } from "react-icons";
+import { FlipWords } from "../components/ui/flip-words";
+
 
 // Define proper types for the technology object
 interface Technology {
@@ -15,6 +17,8 @@ interface Technology {
   name: string;
   textColor: string;
 }
+
+const words = ["React", "NextJS", "Astro", "Python", "Tailwind"];
 
 export default function About() {
   const description = `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam iusto quisquam, voluptas quas perspiciatis ullam facere velit quidem! Cumque ducimus consequatur distinctio, atque possimus facere exercitationem reiciendis quidem maxime. Maxime!`;
@@ -103,7 +107,7 @@ export default function About() {
               Technologies used
             </CardTitle>
             <CardDescription className="font-outfit">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
+              Lorem ipsum dolor, <FlipWords words={words}/>sit amet consectetur adipisicing elit. Nisi
               molestias aut quos vero ipsum veniam officia quas ducimus! Cum
               adipisci iure veniam tempore temporibus sapiente vitae totam
               reprehenderit possimus. Autem.
