@@ -51,7 +51,7 @@ export default function Footer() {
         transition={{ duration: 0.6 }}
       >
         <motion.p className="text-sm text-white">
-          © {currentYear} Camilo Simanca. All rights reserved.
+          © {currentYear} Camilo Simanca. Todos los derechos reservados.
         </motion.p>
       </motion.div>
     </motion.footer>

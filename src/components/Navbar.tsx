@@ -48,22 +48,22 @@ export default function Navbar() {
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
               <li>
                 <a href="#" className="nav-link block py-2 px-3 md:p-0 font-bold">
-                  Home
+                  Inicio
                 </a>
               </li>
               <li>
                 <a href="#about" className="nav-link block py-2 px-3 md:p-0 font-bold">
-                  About
+                  Sobre mi
                 </a>
               </li>
               <li>
                 <a href="#work" className="nav-link block py-2 px-3 md:p-0 font-bold">
-                  Work
+                  Experiencia
                 </a>
               </li>
               <li>
                 <a href="#contact" className="nav-link block py-2 px-3 md:p-0 font-bold">
-                  Contact
+                  Contactame
                 </a>
               </li>
             </ul>

@@ -75,7 +75,7 @@ export const Card = React.memo(
                 "inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl bg-black/80 transition-all duration-300 group-hover:bg-black/60 relative",
                 hovered === index && "bg-black/70"
               )}>
-                View Project
+                Ver
               </span>
             </button>
           </Link>
