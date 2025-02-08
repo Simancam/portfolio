@@ -1,8 +1,10 @@
 "use client"
 
 import { motion, useAnimation } from "framer-motion"
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear()
   const controls = useAnimation()
 
@@ -51,7 +53,7 @@ export default function Footer() {
         transition={{ duration: 0.6 }}
       >
         <motion.p className="text-sm text-white">
-          © {currentYear} Camilo Simanca. Todos los derechos reservados.
+          © {currentYear} Camilo Simanca. {t("footer.text")}
         </motion.p>
       </motion.div>
     </motion.footer>

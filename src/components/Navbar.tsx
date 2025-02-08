@@ -1,24 +1,31 @@
-"use client";
+"use client"
 
-import { useState } from "react";
+import { useState } from "react"
+import { useTranslation } from "react-i18next"
+import LanguageSwitcher from "./LanguageSwitcher"
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const { t } = useTranslation()
 
   return (
     <div className="w-full fixed top-0 left-0 right-0 z-50 px-4 py-4">
       <nav className="max-w-screen-xl mx-auto backdrop-blur-md bg-black/30 rounded-[20px] border border-white/10 shadow-lg">
         <div className="flex flex-wrap items-center justify-between mx-auto px-6 py-3 font-space-grotesk">
-          <a
-            href="#"
-            className="flex items-center space-x-3 rtl:space-x-reverse"
-          >
-            <h1 className="font-bold text-white">CS</h1>
-          </a>
+          <div className="flex items-center gap-8">
+            <a href="#" className="flex items-center">
+              <h1 className="font-bold text-white text-xl">CS</h1>
+            </a>
+            {/* Language switcher moved next to logo for better visibility */}
+            <div className="hidden md:block border-l border-white/10 pl-8">
+              <LanguageSwitcher />
+            </div>
+          </div>
+
           <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-300 rounded-lg md:hidden hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20 transition-colors"
             aria-controls="navbar-default"
             aria-expanded={isOpen}
           >
@@ -36,35 +43,35 @@ export default function Navbar() {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M1 1h15M1 7h15M1 13h15"
-              ></path>
+              />
             </svg>
           </button>
-          <div
-            className={`${
-              isOpen ? "block" : "hidden"
-            } w-full md:block md:w-auto`}
-            id="navbar-default"
-          >
+
+          <div className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`} id="navbar-default">
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
               <li>
                 <a href="#" className="nav-link block py-2 px-3 md:p-0 font-bold">
-                  Inicio
+                  {t("nav.home")}
                 </a>
               </li>
               <li>
                 <a href="#about" className="nav-link block py-2 px-3 md:p-0 font-bold">
-                  Sobre mi
+                  {t("nav.about")}
                 </a>
               </li>
               <li>
                 <a href="#work" className="nav-link block py-2 px-3 md:p-0 font-bold">
-                  Experiencia
+                  {t("nav.experience")}
                 </a>
               </li>
               <li>
                 <a href="#contact" className="nav-link block py-2 px-3 md:p-0 font-bold">
-                  Contactame
+                  {t("nav.contact")}
                 </a>
+              </li>
+              {/* Language switcher for mobile view */}
+              <li className="md:hidden ml-3">
+                <LanguageSwitcher />
               </li>
             </ul>
           </div>
@@ -111,5 +118,6 @@ export default function Navbar() {
         }
       `}</style>
     </div>
-  );
+  )
 }
+

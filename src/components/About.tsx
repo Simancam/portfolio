@@ -8,9 +8,8 @@ import { FaReact, FaPython } from "react-icons/fa";
 import { SiTailwindcss, SiAstro, SiNextdotjs } from "react-icons/si";
 import { IconType } from "react-icons";
 import { FlipWords } from "../components/ui/flip-words";
+import { useTranslation } from "react-i18next";
 
-
-// Define proper types for the technology object
 interface Technology {
   icon: IconType;
   color: string;
@@ -21,12 +20,7 @@ interface Technology {
 const words = ["React", "Next", "Astro", "Python", "Tailwind"];
 
 export default function About() {
-  const description = `
-  Soy Camilo Simanca, diseñador y desarrollador web de Barranquilla, Colombia. Mi pasión por la programación comenzó a los 14 años, cuando creé mi primera calculadora de peso en diferentes planetas con Atom.  
-
-  Me especializo en diseñar páginas web originales, creativas y visualmente impactantes,  enfocadas en la usabilidad sin ser monótonas.  He trabajado con un diseñador cuyos clientes incluyen figuras reconocidas como Blessd, WestCol y Pirlo.
-`;
-
+  const { t } = useTranslation();
 
   const technologies: Technology[] = [
     { icon: FaReact, color: "#4A90E2", name: "React", textColor: "white" },
@@ -66,10 +60,10 @@ export default function About() {
 
             <div className="space-y-6">
               <CardTitle className="text-[#FF3E3E] !text-4xl md:!text-5xl">
-                Sobre Mi
+                {t("about.title")}
               </CardTitle>
               <CardDescription className="!text-base leading-relaxed font-outfit">
-                {description}
+                {t("about.description")}
               </CardDescription>
             </div>
           </div>
@@ -78,28 +72,25 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card className="bg-gradient-to-r p-6 rounded-2xl shadow-lg">
             <CardTitle className="text-[#FF3E3E] text-2xl mb-8">
-              Educacion
+              {t("about.education.title")}
             </CardTitle>
             <CardDescription className="font-outfit">
               <ul className="space-y-6">
-                <li className="flex flex-col space-y-1">
-                  <div className="font-bold text-white text-xl">
-                    Ingeniero de Software
-                  </div>
-                  <div className="text-base text-gray-300 italic">
-                    Universidad Autónoma del Caribe
-                  </div>
-                  <div className="text-sm text-gray-400">2023 - Presente</div>
-                </li>
-                <li className="flex flex-col space-y-1">
-                  <div className="font-bold text-white text-xl">
-                    Investigador Junior
-                  </div>
-                  <div className="text-base text-gray-300 italic">
-                    Universidad Autónoma del Caribe
-                  </div>
-                  <div className="text-sm text-gray-400">2020 - 2022</div>
-                </li>
+                {t("about.education.degrees", { returnObjects: true }).map(
+                  (degree, index) => (
+                    <li key={index} className="flex flex-col space-y-1">
+                      <div className="font-bold text-white text-xl">
+                        {degree.degree}
+                      </div>
+                      <div className="text-base text-gray-300 italic">
+                        {degree.institution}
+                      </div>
+                      <div className="text-sm text-gray-400">
+                        {degree.years}
+                      </div>
+                    </li>
+                  )
+                )}
               </ul>
             </CardDescription>
           </Card>
@@ -109,10 +100,10 @@ export default function About() {
               <TechStack technologies={technologies} />
             </CardSkeletonContainer>
             <CardTitle className="text-[#FF3E3E] mb-4">
-              Tecnologias que uso
+              {t("about.techStack.title")}
             </CardTitle>
             <CardDescription className="font-outfit">
-            Aprendo y exploro constantemente nuevas herramientas para desarrollar soluciones innovadoras, eficientes y escalables. Me centro en crear proyectos optimizados, adaptarme a las tendencias del mercado y mejorar continuamente mis habilidades. Actualmente utilizo  <FlipWords words={words}/>
+              {t("about.techStack.description")} <FlipWords words={words} />
             </CardDescription>
           </Card>
         </div>

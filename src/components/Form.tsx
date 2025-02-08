@@ -3,8 +3,10 @@ import React from "react";
 import { Label } from "../components/ui/label";
 import { Input } from "../components/ui/input";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 export default function SignupFormDemo() {
+  const { t } = useTranslation();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted");
@@ -12,17 +14,17 @@ export default function SignupFormDemo() {
   return (
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-zinc-900 border border-zinc-800">
       <h2 className="font-bold text-xl text-neutral-200">
-        Ponte en Contacto
+        {t("contact.form.title")}
       </h2>
       <p className="font-outfit text-neutral-400 text-sm max-w-sm mt-2">
-      ¿Necesitas una solución de software a medida? Completa este formulario y me comunicaré contigo para hacer realidad tu visión.
+        {t("contact.description")}
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer className="font-outfit">
             <Label htmlFor="firstname" className="text-neutral-200">
-              Nombre
+              {t("contact.form.firstName")}
             </Label>
             <Input
               id="firstname"
@@ -33,7 +35,7 @@ export default function SignupFormDemo() {
           </LabelInputContainer>
           <LabelInputContainer className="font-outfit">
             <Label htmlFor="lastname" className="text-neutral-200">
-              Apellido
+              {t("contact.form.lastName")}
             </Label>
             <Input
               id="lastname"
@@ -45,7 +47,7 @@ export default function SignupFormDemo() {
         </div>
         <LabelInputContainer className="mb-4 font-outfit">
           <Label htmlFor="email" className="text-neutral-200">
-            Correo
+            {t("contact.form.email")}
           </Label>
           <Input
             id="email"
@@ -56,7 +58,7 @@ export default function SignupFormDemo() {
         </LabelInputContainer>
         <LabelInputContainer className="mb-4 font-outfit">
           <Label htmlFor="phone" className="text-neutral-200">
-            Telefono
+            {t("contact.form.phone")}
           </Label>
           <div className="flex gap-2">
             <Input
@@ -75,11 +77,10 @@ export default function SignupFormDemo() {
         </LabelInputContainer>
         <LabelInputContainer className="mb-8 font-outfit">
           <Label htmlFor="twitterpassword" className="text-neutral-200">
-            Tipo de proyecto
+            {t("contact.form.projectType")}
           </Label>
           <Input
             id="twitterpassword"
-            placeholder="Describe el proyecto"
             type="text"
             className="bg-zinc-800 border-zinc-700 text-neutral-200 placeholder:text-neutral-500 focus:border-[#FF3E3E] focus-visible:ring-1 focus-visible:ring-[#FF3E3E] hover:border-[#FF3E3E]"
           />
@@ -88,7 +89,7 @@ export default function SignupFormDemo() {
           className="font-outfit bg-gradient-to-br relative group/btn from-zinc-800 to-zinc-900 block w-full text-neutral-200 rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit"
         >
-          Enviar
+          {t("contact.form.submit")}
           <BottomGradient />
         </button>
       </form>

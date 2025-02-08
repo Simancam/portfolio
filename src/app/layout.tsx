@@ -3,6 +3,7 @@ import { Space_Grotesk, Outfit } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import React from 'react';
+import { I18nProvider } from "@/providers/i18n-provider";
 
 // Configurar Space Grotesk para títulos
 const spaceGrotesk = Space_Grotesk({
@@ -32,7 +33,9 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${outfit.variable} antialiased`}
       >
         <Script src="../path/to/flowbite/dist/flowbite.min.js" />
-        {children}
+        <I18nProvider>
+          {children}
+        </I18nProvider>
       </body>
     </html>
   );
