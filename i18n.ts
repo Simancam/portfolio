@@ -63,6 +63,11 @@ declare module "i18next" {
             phonePrefix: string;
             phoneNumber: string;
             projectType: string;
+            projectTypePlaceholder: string;
+            option1: string;
+            option2: string;
+            option3: string;
+            option4: string;
             submit: string;
           };
         };
@@ -164,6 +169,11 @@ i18n
               phonePrefix: "Prefix",
               phoneNumber: "Number",
               projectType: "Project Type",
+              projectTypePlaceholder: "Select",
+              option1: "Software",
+              option2: "Landing Page",
+              option3: "Desing",
+              option4: "Other",
               submit: "Send",
             },
           },
@@ -257,6 +267,11 @@ i18n
               phonePrefix: "Prefijo",
               phoneNumber: "Número",
               projectType: "Tipo de proyecto",
+              projectTypePlaceholder: "Seleccionar",
+              option1: "Sistema Informático",
+              option2: "Pagina web",
+              option3: "Diseño",
+              option4: "Otros",
               submit: "Enviar",
             },
           },

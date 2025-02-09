@@ -8,6 +8,7 @@ body {
 
 @layer base {
   :root {
+    --removed-scroll-width: 0px;
     --background: 240 5% 15%; /* Fondo oscuro neutro para el tema claro */
     --foreground: 240 10% 90%; /* Texto claro */
     --card: 240 5% 18%; 
@@ -63,6 +64,20 @@ body {
 }
 
 @layer base {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Para Firefox */
+  * {
+    scrollbar-width: none;
+  }
+
+  /* Para IE/Edge */
+  * {
+    -ms-overflow-style: none;
+  }
+  
   * {
     @apply border-border;
     white-space: pre-line;
