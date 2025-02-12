@@ -43,6 +43,7 @@ declare module "i18next" {
         };
         projects: {
           title: string;
+          btnText: string;
           cards: {
             title: string;
             description: string;
@@ -129,6 +130,7 @@ i18n
           },
           projects: {
             title: "Experience",
+            btnText: "View",
             cards: [
               {
                 title: "Lilibeth Reales",
@@ -227,6 +229,7 @@ i18n
           },
           projects: {
             title: "Experiencia",
+            btnText: "Ver",
             cards: [
               {
                 title: "Lilibeth Reales",

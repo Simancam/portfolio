@@ -12,6 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
 import { useToast } from "@/components/ui/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 export default function SignupFormDemo() {
   const { t } = useTranslation();
@@ -45,37 +46,48 @@ export default function SignupFormDemo() {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const templateParams = {
+        first_name: formData.firstname,
+        last_name: formData.lastname,
+        user_email: formData.email,
+        prefix: formData.phonePrefix,
+        number: formData.phoneNumber,
+        projectType: formData.projectType,
+      };
 
-      if (!response.ok) {
-        throw new Error("Error al enviar el formulario");
+      const emailResponse = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+      );
+
+      if (emailResponse.status === 200) {
+        toast({
+          title: "¡Mensaje enviado con éxito!",
+          description:
+            "Gracias por tu mensaje. Te responderé lo antes posible.",
+          duration: 5000,
+        });
+
+        setFormData({
+          firstname: "",
+          lastname: "",
+          email: "",
+          phonePrefix: "",
+          phoneNumber: "",
+          projectType: "",
+        });
+      } else {
+        throw new Error("Error al enviar el email");
       }
-
-      toast({
-        title: "¡Éxito!",
-        description: "Tu mensaje ha sido enviado correctamente.",
-      });
-
-      // Limpia el formulario
-      setFormData({
-        firstname: "",
-        lastname: "",
-        email: "",
-        phonePrefix: "",
-        phoneNumber: "",
-        projectType: "",
-      });
-    } catch {
+    } catch (error) {
       toast({
         title: "Error",
-        description: "Hubo un problema al enviar el formulario. Por favor, intenta nuevamente.",
+        description:
+          "Hubo un problema al enviar el formulario. Por favor, intenta nuevamente.",
         variant: "destructive",
+        duration: 5000,
       });
     } finally {
       setLoading(false);
@@ -176,19 +188,19 @@ export default function SignupFormDemo() {
             </SelectTrigger>
             <SelectContent className="bg-zinc-800 border-zinc-700">
               <SelectItem
-                value="web"
+                value="software"
                 className="text-neutral-200 focus:bg-zinc-700 focus:text-neutral-200"
               >
                 {t("contact.form.option1")}
               </SelectItem>
               <SelectItem
-                value="mobile"
+                value="landing"
                 className="text-neutral-200 focus:bg-zinc-700 focus:text-neutral-200"
               >
                 {t("contact.form.option2")}
               </SelectItem>
               <SelectItem
-                value="desktop"
+                value="desing"
                 className="text-neutral-200 focus:bg-zinc-700 focus:text-neutral-200"
               >
                 {t("contact.form.option3")}

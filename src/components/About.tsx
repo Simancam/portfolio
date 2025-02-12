@@ -50,7 +50,7 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-2">
             <CardSkeletonContainer className="!h-auto aspect-square max-w-[400px] mx-auto md:mx-0">
               <Image
-                src="/images.jpg"
+                src="/image.png"
                 alt="About section image"
                 width={400}
                 height={400}
