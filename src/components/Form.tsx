@@ -82,10 +82,10 @@ export default function SignupFormDemo() {
         throw new Error("Error al enviar el email");
       }
     } catch (error) {
+      console.error('Error al enviar el formulario:', error);
       toast({
         title: "Error",
-        description:
-          "Hubo un problema al enviar el formulario. Por favor, intenta nuevamente.",
+        description: "Hubo un problema al enviar el formulario. Por favor, intenta nuevamente.",
         variant: "destructive",
         duration: 5000,
       });
