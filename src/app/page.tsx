@@ -1,103 +1,155 @@
-import Image from "next/image";
+"use client";
+
+import { Separator } from "@radix-ui/react-separator";
+import Navigation from "@/components/navigation";
+import { Jacquard_24 } from "next/font/google";
+import { motion } from "framer-motion";
+import {
+  containerVariants2,
+  wordVariants,
+  imageVariants,
+  linkVariants,
+} from "@/utils/animations";
+import Link from "next/link";
+
+const jacquard = Jacquard_24({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const MotionLink = motion(Link);
+
+const text =
+  "My name is Camilo Simanca. I'm Web Developer and Designer appassionate about creative and unique Websites.";
+
+const title = "Get Your Pages To A Next F*king Level";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const words = text.split(" ");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <>
+      <div className="bg-[#f5f1e9]">
+        <div className="flex flex-col md:flex-row ">
+          <Navigation />
+          <main className="p-4 sm:p-6 md:p-10 pt-3 sm:pt-5 md:pt-5 md:ml-15 md:flex-1">
+            <motion.h1
+              className={`font-bold ${jacquard.className} text-5xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-[7rem]`}
+              variants={containerVariants2}
+              initial="hidden"
+              animate="visible"
+            >
+              {title.split(" ").map((title, index) => (
+                <span
+                  key={index}
+                  className="inline-block overflow-hidden mr-[0.25em] last:mr-0"
+                >
+                  <motion.span variants={wordVariants} className="inline-block">
+                    {title}
+                  </motion.span>
+                </span>
+              ))}
+            </motion.h1>
+          </main>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <Separator
+          orientation="horizontal"
+          className="w-full h-[1px] bg-black"
+        />
+
+        <div className="flex flex-col lg:flex-row p-4 sm:p-10 gap-6 lg:gap-0">
+          <div className="flex-[2] text-left lg:pr-10 flex flex-col min-h-[300px] sm:min-h-[500px]">
+            <motion.h1
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono lg:mr-96"
+              variants={containerVariants2}
+              initial="hidden"
+              animate="visible"
+            >
+              {words.map((word, index) => (
+                <span
+                  key={index}
+                  className="inline-block overflow-hidden mr-[0.25em] last:mr-0"
+                >
+                  <motion.span variants={wordVariants} className="inline-block">
+                    {word}
+                  </motion.span>
+                </span>
+              ))}
+            </motion.h1>
+
+            {/* Mobile Image */}
+            <div className="flex justify-center my-28 sm:my-10 lg:hidden bg-gray-300">
+              <motion.img
+                src="/DS.svg"
+                alt="Imagen descriptiva"
+                className="max-w-[80%] max-h-[270px] sm:max-h-[250px] h-auto"
+                variants={imageVariants}
+                initial="hidden"
+                animate="visible"
+              />
+            </div>
+
+            <div className="mt-auto flex flex-wrap items-center gap-2 sm:gap-3 text-sm sm:text-lg lg:text-xl font-mono sm:pt-20">
+              <MotionLink
+                href="/linkedin"
+                variants={linkVariants}
+                initial="initial"
+                animate="animate"
+                whileHover="whileHover"
+                className="hover:underline"
+              >
+                LINKEDIN
+              </MotionLink>
+              <span>/</span>
+              <MotionLink
+                href="https://github.com/Simancam"
+                variants={linkVariants}
+                initial="initial"
+                animate="animate"
+                whileHover="whileHover"
+                className="hover:underline"
+              >
+                GITHUB
+              </MotionLink>
+              <span>/</span>
+              <MotionLink
+                href="mailto:simancamca@gmail.com"
+                variants={linkVariants}
+                initial="initial"
+                animate="animate"
+                whileHover="whileHover"
+                className="hover:underline"
+              >
+                EMAIL
+              </MotionLink>
+              <span>/</span>
+              <MotionLink
+                href="https://curriculum-lime.vercel.app/"
+                variants={linkVariants}
+                initial="initial"
+                animate="animate"
+                whileHover="whileHover"
+                className="hover:underline"
+              >
+                CV
+              </MotionLink>
+            </div>
+          </div>
+
+          {/* Desktop Image */}
+          <div className="hidden lg:flex flex-1 justify-end bg-gray-300">
+            <motion.img
+              src="/sf.svg"
+              alt="Imagen descriptiva"
+              className="max-w-[100%] max-h-[500px] h-auto"
+              variants={imageVariants}
+              initial="hidden"
+              animate="visible"
+            />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
