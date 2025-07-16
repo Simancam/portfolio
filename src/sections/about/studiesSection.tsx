@@ -11,7 +11,7 @@ const jacquard = Silkscreen({
 const studies = [
   {
     institution: "UNIVERSIDAD AUTONOMA DEL CARIBE",
-    degree: "Software Ingieneer",
+    degree: "Software Engineer",
     period: "2020 - Present",
   },
   {

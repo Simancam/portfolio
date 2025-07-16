@@ -1,31 +1,26 @@
-"use client";
+"use client"
 
-import { Separator } from "@radix-ui/react-separator";
-import Navigation from "@/components/navigation";
-import { Jacquard_24 } from "next/font/google";
-import { motion } from "framer-motion";
-import {
-  containerVariants2,
-  wordVariants,
-  imageVariants,
-  linkVariants,
-} from "@/utils/animations";
-import Link from "next/link";
+import { Separator } from "@radix-ui/react-separator"
+import Navigation from "@/components/navigation"
+import { Jacquard_24 } from "next/font/google"
+import { motion } from "framer-motion"
+import { containerVariants2, wordVariants, imageVariants, linkVariants } from "@/utils/animations"
+import Link from "next/link"
 
 const jacquard = Jacquard_24({
   subsets: ["latin"],
   weight: "400",
-});
+})
 
-const MotionLink = motion(Link);
+const MotionLink = motion(Link)
 
 const text =
-  "My name is Camilo Simanca. I'm Web Developer and Designer appassionate about creative and unique Websites.";
+  "My name is Camilo Simanca. I'm a Web Developer and Designer appassionate about creative and unique websites."
 
-const title = "Get Your Pages To A Next F*king Level";
+const title = "Get Your Pages To The Next F*cking Level"
 
 export default function Home() {
-  const words = text.split(" ");
+  const words = text.split(" ")
 
   return (
     <>
@@ -40,10 +35,7 @@ export default function Home() {
               animate="visible"
             >
               {title.split(" ").map((title, index) => (
-                <span
-                  key={index}
-                  className="inline-block overflow-hidden mr-[0.25em] last:mr-0"
-                >
+                <span key={index} className="inline-block overflow-hidden mr-[0.25em] last:mr-0">
                   <motion.span variants={wordVariants} className="inline-block">
                     {title}
                   </motion.span>
@@ -52,12 +44,7 @@ export default function Home() {
             </motion.h1>
           </main>
         </div>
-
-        <Separator
-          orientation="horizontal"
-          className="w-full h-[1px] bg-black"
-        />
-
+        <Separator orientation="horizontal" className="w-full h-[1px] bg-black" />
         <div className="flex flex-col lg:flex-row p-4 sm:p-10 gap-6 lg:gap-0">
           <div className="flex-[2] text-left lg:pr-10 flex flex-col min-h-[300px] sm:min-h-[500px]">
             <motion.h1
@@ -67,10 +54,7 @@ export default function Home() {
               animate="visible"
             >
               {words.map((word, index) => (
-                <span
-                  key={index}
-                  className="inline-block overflow-hidden mr-[0.25em] last:mr-0"
-                >
+                <span key={index} className="inline-block overflow-hidden mr-[0.25em] last:mr-0">
                   <motion.span variants={wordVariants} className="inline-block">
                     {word}
                   </motion.span>
@@ -79,15 +63,17 @@ export default function Home() {
             </motion.h1>
 
             {/* Mobile Image */}
-            <div className="flex justify-center my-28 sm:my-10 lg:hidden bg-gray-300">
-              <motion.img
-                src="/DS.svg"
-                alt="Imagen descriptiva"
-                className="max-w-[80%] max-h-[270px] sm:max-h-[250px] h-auto"
-                variants={imageVariants}
-                initial="hidden"
-                animate="visible"
-              />
+            <div className="flex justify-center my-28 sm:my-10 lg:hidden">
+              <div className="w-[100%] h-[300px] sm:h-[250px] overflow-hidden">
+                <motion.img
+                  src="/foto1.png"
+                  alt="Imagen descriptiva"
+                  className="w-full h-full object-cover filter grayscale sepia-[0.3] contrast-110 brightness-110"
+                  variants={imageVariants}
+                  initial="hidden"
+                  animate="visible"
+                />
+              </div>
             </div>
 
             <div className="mt-auto flex flex-wrap items-center gap-2 sm:gap-3 text-sm sm:text-lg lg:text-xl font-mono sm:pt-20">
@@ -138,18 +124,20 @@ export default function Home() {
           </div>
 
           {/* Desktop Image */}
-          <div className="hidden lg:flex flex-1 justify-end bg-gray-300">
-            <motion.img
-              src="/sf.svg"
-              alt="Imagen descriptiva"
-              className="max-w-[100%] max-h-[500px] h-auto"
-              variants={imageVariants}
-              initial="hidden"
-              animate="visible"
-            />
+          <div className="hidden lg:flex flex-1 justify-end">
+            <div className="w-full max-w-[600px] h-[500px] overflow-hidden">
+              <motion.img
+                src="/foto1.png"
+                alt="Imagen descriptiva"
+                className="w-full h-full object-cover filter grayscale sepia-[0.3] contrast-110 brightness-110"
+                variants={imageVariants}
+                initial="hidden"
+                animate="visible"
+              />
+            </div>
           </div>
         </div>
       </div>
     </>
-  );
+  )
 }

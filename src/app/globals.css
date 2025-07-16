@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #F5F1E9;
+  --background: #f5f1e9;
   --foreground: #171717;
 }
 
@@ -15,30 +15,83 @@
   --font-mono: var(--font-geist-mono);
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
   @keyframes marquee {
-  from {
-    transform: translateX(0);
+    from {
+      transform: translateX(0);
     }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
     }
   }
+
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
+    from {
+      transform: translateY(0);
     }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
     }
   }
 }
 
+/* Lenis base config */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Aplicar ocultar scrollbar de manera global */
+html,
 body {
+  overflow: hidden; /* ❗️Oculta el scroll en todas las direcciones */
+  height: 100%;
   background-color: black;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+
+  /* Ocultar scrollbar en navegadores modernos */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Clase utilitaria (por si quieres aplicarla a divs específicos) */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE y Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* View transitions */
 ::view-transition-group(root) {
   z-index: auto !important;
 }
@@ -57,13 +110,4 @@ body {
 ::view-transition-old(root) {
   z-index: 1;
   animation: none !important;
-}
-
-@layer base {
-  * {
-    
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
 }

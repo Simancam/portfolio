@@ -218,7 +218,7 @@ export default function ContactPage() {
                   READY TO START?
                 </h3>
                 <p className="text-gray-600 font-mono mb-6 text-center">
-                  I`&apos;`m always excited to work on new challenges and bring
+                  I&apos;m always excited to work on new challenges and bring
                   creative ideas to life.
                 </p>
                 <div className="text-center">

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { containerVariants2, wordVariants } from "@/utils/animations";
 
 const text =
-  "I'm From Barranquilla, Colombia. I started coding in Atom since 2020. I like to be authentical and original.";
+  "I'm from Barranquilla, Colombia. I started coding in Atom since 2020. I like to be authentical and original.";
 
 export default function IntroSection() {
   const words = text.split(" ");
