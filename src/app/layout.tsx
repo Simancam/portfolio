@@ -4,7 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { ViewTransitions } from "next-view-transitions"
 import { Toaster } from "sonner"
-import SmoothScrolling from "@/components/smoothScroling"
+import SmoothScrolling from "@/components/smoothScrolling"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

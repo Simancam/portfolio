@@ -35,7 +35,16 @@
   }
 }
 
-/* Lenis base config */
+::selection {
+  background-color: #6b7280;
+  color: white; 
+}
+
+::-moz-selection {
+  background-color: #6b7280; 
+  color: white;
+}
+
 html.lenis {
   height: auto;
 }
@@ -56,23 +65,25 @@ html.lenis {
   pointer-events: none;
 }
 
-/* Aplicar ocultar scrollbar de manera global */
 html,
 body {
-  overflow: hidden; /* ❗️Oculta el scroll en todas las direcciones */
   height: 100%;
   background-color: black;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-
-  /* Ocultar scrollbar en navegadores modernos */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
+@media (min-width: 1024px) {
+  html,
+  body {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+  
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none; 
+  }
 }
 
 @layer base {
@@ -81,17 +92,15 @@ body::-webkit-scrollbar {
   }
 }
 
-/* Clase utilitaria (por si quieres aplicarla a divs específicos) */
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE y Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
 }
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-/* View transitions */
 ::view-transition-group(root) {
   z-index: auto !important;
 }

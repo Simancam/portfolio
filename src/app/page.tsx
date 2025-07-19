@@ -17,7 +17,7 @@ const MotionLink = motion(Link)
 const text =
   "My name is Camilo Simanca. I'm a Web Developer and Designer appassionate about creative and unique websites."
 
-const title = "Get Your Pages To The Next F*cking Level"
+const title = "Get Your Pages To The Next F**king Level"
 
 export default function Home() {
   const words = text.split(" ")
