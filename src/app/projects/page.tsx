@@ -5,7 +5,7 @@ import Navigation from "@/components/navigation";
 import { Silkscreen } from "next/font/google";
 import { motion } from "framer-motion";
 import { containerVariants2, wordVariants } from "@/utils/animations";
-import InfiniteCarousel from "@/sections/projects/infiniteCarousel";
+import Carousel from "@/sections/projects/carousel";
 import Footer from "@/components/footer";
 
 const jacquard = Silkscreen({
@@ -97,9 +97,8 @@ export default function AboutPage() {
         />
 
         <div className="w-full mt-8 overflow-hidden">
-          <InfiniteCarousel
+          <Carousel
             projects={projectsData}
-            speed={20}
           />
         </div>
       </div>

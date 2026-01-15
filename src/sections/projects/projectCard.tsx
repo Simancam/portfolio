@@ -17,7 +17,6 @@ interface ProjectCardProps {
   url?: string;
 }
 
-
 const ProjectCard = ({
   image,
   year,
@@ -26,35 +25,47 @@ const ProjectCard = ({
   url,
 }: ProjectCardProps) => {
   return (
-    <div className="w-[22rem] min-h-[26rem] bg-transparent border border-black p-6 flex flex-col justify-between flex-shrink-0">
-      {/* Image container */}
-      <div className="relative h-40 bg-gray-100 overflow-hidden mb-4">
+    <div className="w-[24rem] h-[32rem] bg-transparent border border-black p-8 flex flex-col mx-auto">
+      {/* Image */}
+      <div className="relative h-56 bg-gray-100 overflow-hidden mb-6">
         <Image
           src={image || "/placeholder.svg"}
-          width={400}
-          height={200}
+          width={500}
+          height={300}
           alt={`${title} project showcase`}
           className="w-full h-full object-cover"
         />
       </div>
 
-      {/* Content section */}
+      {/* Content */}
       <div className="flex flex-col flex-1">
-        <p className="text-gray-500 text-sm mb-2 font-light font-mono">{year}</p>
+        <p className="text-gray-500 text-sm mb-3 font-light font-mono">
+          {year}
+        </p>
 
-        <h3 className={`text-black font-bold text-lg mb-3 tracking-wide ${jacquard.className}`}>
+        <h3
+          className={`text-black font-bold text-xl mb-4 tracking-wide ${jacquard.className}`}
+        >
           {title}
         </h3>
 
-        {description && (
-          <p className="text-gray-600 text-sm mb-4 line-clamp-2 font-mono">
-            {description}
-          </p>
-        )}
+        {/* Fixed text block */}
+        <div className="flex-1">
+          {description && (
+            <p className="text-gray-600 text-base line-clamp-3 font-mono">
+              {description}
+            </p>
+          )}
+        </div>
 
-        {/* View case button */}
-        <div className="mt-auto">
-          <AnimatedButton text="VIEW CASE" href={url} type="external" target="_blank" />
+        {/* Button always at bottom */}
+        <div className="pt-6">
+          <AnimatedButton
+            text="VIEW CASE"
+            href={url}
+            type="external"
+            target="_blank"
+          />
         </div>
       </div>
     </div>
